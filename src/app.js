@@ -1,24 +1,21 @@
 import express from 'express';
-//var app = express();
+import routes from './routes';
 
 class App {
   constructor() {
-    this.express = express();
+    this.server = express();
+    this.middlewares();
+    this.routes();
+  }
+
+  middlewares() {
+    this.server.use(express.json());
+  }
+
+  routes() {
+    this.server.use(routes);
   }
 }
 
-var novo = new App().express;
+export default new App().server;
 
-novo.listen(3000, () => {
-  console.log('ouvindo porta 3000');
-});
-
-
-// app.get('/', (req, res) => {
-//   return res.send('olá mané');
-// });
-// app.listen(3000, () => {
-//   console.log('ouvindo porta 3000');
-// });
-
-//export default new App();
