@@ -3,7 +3,7 @@ import { Router } from 'express';
 //rota usuário
 import UserController from './app/controllers/UserController';
 
-//rota para locar 
+//rota para locar
 import SessionController from './app/controllers/SessionController';
 
 import User from './app/models/User';
@@ -39,5 +39,6 @@ routes.use(authMiddleware);
 
 routes.put('/user', UserController.update );
 
-routes.delete('/user/delete', UserController.delete);
+
+
 export default routes;

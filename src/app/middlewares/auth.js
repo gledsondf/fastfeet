@@ -13,12 +13,13 @@ export default async (req, res, next) => {
   }
 
   const [, token ] = authHeader.split(' ');
-  
+
   try {
    const decoded = await promisify(jwt.verify)(token, authConfig.secret );
    //console.log(decoded);
    req.userId = decoded.id;
-   next();
+
+  return next();
   } catch (err) {
     return res.status(401).json({ erro: 'Token inválido'});
   }
