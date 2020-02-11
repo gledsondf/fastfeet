@@ -33,7 +33,7 @@ routes.get('/user/listar', UserController.read );
 
 
 //rota para logar
-routes.post('/sessions', SessionController.store);
+routes.post('/login', SessionController.store);
 //tudo abaixo deste middleware global , precisa estar autenticado para continuar
 routes.use(authMiddleware);
 
