@@ -3,8 +3,11 @@ import { Router } from 'express';
 //rota usuário
 import UserController from './app/controllers/UserController';
 
-//rota para locar
+
+//rota para logar
 import SessionController from './app/controllers/SessionController';
+//rota recipiente
+import RecipientController from './app/controllers/RecipientController';
 
 import User from './app/models/User';
 
@@ -14,23 +17,22 @@ const routes = new Router();
 
 
 //home
-routes.get('/', async (req, res) => {
+// routes.get('/', async (req, res) => {
 
-  const user = await User.create({
-    name: 'Gledson luciano',
-    email: 'gledsondf@gmail.com',
-    password_hash: '123456',
+//   const user = await User.create({
+//     name: 'Gledson luciano',
+//     email: 'gledsondf@gmail.com',
+//     password_hash: '123456',
 
-  })
-  return res.json(user);
-});
+//   })
+//   return res.json(user);
+// });
 
 //usuário - crud
 
 routes.post('/user', UserController.create);
 
 routes.get('/user/listar', UserController.read );
-
 
 //rota para logar
 routes.post('/login', SessionController.store);
@@ -39,6 +41,8 @@ routes.use(authMiddleware);
 
 routes.put('/user', UserController.update );
 
+//rota recipient
+routes.post('/destinatario', RecipientController.store);
 
 
 export default routes;

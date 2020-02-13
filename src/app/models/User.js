@@ -11,7 +11,8 @@ class User extends Model {
       provider: Sequelize.BOOLEAN,
     },
     {
-      sequelize,
+      sequelize:sequelize,
+      modelName: 'User'
     }
     );
     //executa antes de salvar
