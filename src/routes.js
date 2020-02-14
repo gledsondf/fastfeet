@@ -43,6 +43,7 @@ routes.put('/user', UserController.update );
 
 //rota recipient
 routes.post('/destinatario', RecipientController.store);
+routes.put('/destinatario', RecipientController.update);
 
 
 export default routes;
